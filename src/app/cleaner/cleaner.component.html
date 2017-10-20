@@ -1,0 +1,14 @@
+  <form [formGroup]="eaForm" (ngSubmit)="onSubmit(eaForm)">
+    <textarea
+      name="req"
+      rows="15"
+      cols="80"
+      [formControl]="eaForm.controls['req']">
+    </textarea>
+    <input type="submit" value="Go"/>
+  </form>
+
+  <div *ngIf="result">
+    <h2>Résultat</h2>
+    <textarea rows="15" cols="80">{{result}}</textarea>
+  </div>
