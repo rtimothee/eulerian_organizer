@@ -1,14 +1,31 @@
+<div id="cleaner">
+
   <form [formGroup]="eaForm" (ngSubmit)="onSubmit(eaForm)">
     <textarea
       name="req"
-      rows="15"
-      cols="80"
       [formControl]="eaForm.controls['req']">
     </textarea>
     <input type="submit" value="Go"/>
   </form>
 
+<!-- *ngIf="result" -->
   <div *ngIf="result">
-    <h2>Résultat</h2>
-    <textarea rows="15" cols="80">{{result}}</textarea>
+    <div  id="result">
+      <h2>Result</h2>
+      <textarea>{{result}}</textarea>
+    </div>
+    <div  id="details">
+      <h2>Details</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        <tr *ngFor="let i of JSObject.keys(details)">
+          <td>{{i}}</td>
+          <td>{{URI_decode(details[i])}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
+</div>

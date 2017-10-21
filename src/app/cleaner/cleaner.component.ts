@@ -4,11 +4,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-cleaner',
   templateUrl: './cleaner.component.html',
-  styleUrls: ['./cleaner.component.css']
+  styleUrls: ['./cleaner.component.scss']
 })
 export class CleanerComponent implements OnInit {
   eaForm: FormGroup;
   result: string;
+  details: any[];
+  JSObject: Object = Object;
 
   constructor(fb: FormBuilder) {
     this.eaForm = fb.group({
@@ -27,6 +29,7 @@ export class CleanerComponent implements OnInit {
     let params = this.sort_params(this.extract_params(tab_request[1]));
 
     params = this.organize_products(params);
+    this.details = params;
 
     return this.construct_request(tab_request[0], params);
   }
@@ -38,7 +41,6 @@ export class CleanerComponent implements OnInit {
       let param_tab = params[i].split('=');
       if(param_tab[0] && param_tab[0].match(/\w+/)) new_format[param_tab[0]] = param_tab[1];
     }
-    console.log(new_format);
     return new_format;
   }
 
@@ -116,6 +118,10 @@ export class CleanerComponent implements OnInit {
     }
 
     return domain+'?'+array_params.join('&');
+  }
+
+  URI_decode = function(str: string): string {
+    return decodeURIComponent(str);
   }
 
 }

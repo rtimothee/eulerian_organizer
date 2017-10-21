@@ -1,0 +1,55 @@
+#cleaner{
+  form{
+    width:100%;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  #result, #details{
+    width:45%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  #result{
+    textarea{
+      height: 250px;
+    }
+  }
+  #details{
+    table{
+      border-collapse: collapse;
+      width:90%;
+      &, th, td{
+        border: 1px solid black;
+      }
+      th{
+        font-weight: bold;
+      }
+      td{
+        text-align: left;
+        padding: 5px 10px;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  textarea{
+    width:80%;
+    height: 150px;
+    max-width: 860px;
+  }
+  input[type='submit']{
+    display: block;
+    margin: auto;
+    border: none;
+    font-size: 20px;
+    background: #888;
+    color: #FFF;
+    padding: 5px 20px;
+
+    &:hover{
+      background: #666;
+      cursor: pointer;
+    }
+  }
+}
